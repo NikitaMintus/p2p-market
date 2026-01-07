@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  server:
+    command: sh -c "npx prisma migrate deploy --schema=libs/db/prisma/schema.prisma && npx nx run server:serve --configuration development"
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+
+  client:
+    working_dir: /usr/src/app/apps/client
+    command: sh -c "npx next dev -H 0.0.0.0 -p 3000"
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_API_URL: http://localhost:3000/api
+      CHOKIDAR_USEPOLLING: "true"
+      WATCHPACK_POLLING: "true"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/apps/client/.next
+    ports:
+      - "4200:3000"

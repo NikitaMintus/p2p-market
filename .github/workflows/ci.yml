@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+        cache-dependency-path: 'p2p-marketplace/package-lock.json'
+
+    - name: Install Dependencies
+      run: |
+        cd p2p-marketplace
+        npm ci
+
+    - name: Lint
+      run: |
+        cd p2p-marketplace
+        npx nx run-many --target=lint --all
+
+    - name: Test
+      run: |
+        cd p2p-marketplace
+        npx nx run-many --target=test --all
+
+    - name: Build
+      run: |
+        cd p2p-marketplace
+        npx nx run-many --target=build --all
+
+
+

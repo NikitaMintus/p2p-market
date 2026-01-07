@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: p2p_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-p2p_market}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - p2p-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  server:
+    build:
+      context: .
+      dockerfile: apps/server/Dockerfile
+    container_name: p2p_server
+    command: sh -c "npx prisma migrate deploy --schema=libs/db/prisma/schema.prisma && node dist/apps/server/main.js"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-p2p_market}
+      JWT_SECRET: ${JWT_SECRET:-secretKey}
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    networks:
+      - p2p-network
+    restart: always
+
+  client:
+    build:
+      context: .
+      dockerfile: apps/client/Dockerfile
+    container_name: p2p_client
+    depends_on:
+      - server
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3000/api
+      API_URL: http://server:3000/api
+    ports:
+      - "4200:3000"
+    networks:
+      - p2p-network
+    restart: always
+
+volumes:
+  postgres_data:
+
+networks:
+  p2p-network:

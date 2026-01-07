@@ -1,0 +1,106 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum ListingStatus {
+  DRAFT
+  ACTIVE
+  SOLD
+  EXPIRED
+}
+
+enum Condition {
+  NEW
+  LIKE_NEW
+  GOOD
+  FAIR
+  POOR
+}
+
+enum OfferStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  WITHDRAWN
+}
+
+enum TransactionStatus {
+  OFFER_ACCEPTED
+  PAYMENT_PENDING
+  PAID
+  SHIPPED
+  DELIVERED
+  COMPLETED
+  DISPUTED
+  CANCELLED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  listings  Listing[]
+  offers    Offer[]
+  buyerTransactions Transaction[] @relation("BuyerTransactions")
+  sellerTransactions Transaction[] @relation("SellerTransactions")
+}
+
+model Listing {
+  id          String        @id @default(uuid())
+  title       String
+  description String
+  price       Decimal
+  category    String
+  condition   Condition
+  status      ListingStatus @default(DRAFT)
+  images      String[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  sellerId    String
+  seller      User          @relation(fields: [sellerId], references: [id])
+
+  offers      Offer[]
+}
+
+model Offer {
+  id        String      @id @default(uuid())
+  amount    Decimal
+  message   String?
+  status    OfferStatus @default(PENDING)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  listingId String
+  listing   Listing     @relation(fields: [listingId], references: [id])
+
+  buyerId   String
+  buyer     User        @relation(fields: [buyerId], references: [id])
+
+  transaction Transaction?
+}
+
+model Transaction {
+  id        String            @id @default(uuid())
+  status    TransactionStatus @default(OFFER_ACCEPTED)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  
+  offerId   String            @unique
+  offer     Offer             @relation(fields: [offerId], references: [id])
+
+  buyerId   String
+  buyer     User              @relation(fields: [buyerId], references: [id], name: "BuyerTransactions")
+  
+  sellerId  String
+  seller    User              @relation(fields: [sellerId], references: [id], name: "SellerTransactions")
+}

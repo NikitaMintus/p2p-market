@@ -1,0 +1,348 @@
+time="2025-12-25T02:54:34+03:00" level=warning msg="/Users/zhenyamint/VS CODE/P2P Marketplace with Bidding System/p2p-marketplace/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [server internal] load build definition from Dockerfile
+#1 transferring dockerfile: 297B done
+#1 DONE 0.0s
+
+#2 [server internal] load metadata for docker.io/library/node:20-alpine
+#2 DONE 1.2s
+
+#3 [server internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [server 1/7] FROM docker.io/library/node:20-alpine@sha256:658d0f63e501824d6c23e06d4bb95c71e7d704537c9d9272f488ac03a370d448
+#4 resolve docker.io/library/node:20-alpine@sha256:658d0f63e501824d6c23e06d4bb95c71e7d704537c9d9272f488ac03a370d448 0.0s done
+#4 DONE 0.0s
+
+#5 [server internal] load build context
+#5 transferring context: 10.48MB 5.1s
+#5 transferring context: 12.24MB 6.3s done
+#5 DONE 6.5s
+
+#6 [server 2/7] WORKDIR /usr/src/app
+#6 CACHED
+
+#7 [server 3/7] COPY package*.json ./
+#7 CACHED
+
+#8 [server 4/7] RUN npm install
+#8 CACHED
+
+#9 [server 5/7] COPY . .
+#9 DONE 31.8s
+
+#10 [server 6/7] RUN npx prisma generate --schema=libs/db/prisma/schema.prisma
+#10 2.089 Environment variables loaded from .env
+#10 2.091 Prisma schema loaded from libs/db/prisma/schema.prisma
+#10 2.483 
+#10 2.483 ✔ Generated Prisma Client (v6.19.1) to ./node_modules/@prisma/client in 149ms
+#10 2.483 
+#10 2.483 Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+#10 2.483 
+#10 2.483 Tip: Need your database queries to be 1000x faster? Accelerate offers you that and more: https://pris.ly/tip-2-accelerate
+#10 2.483 
+#10 DONE 2.6s
+
+#11 [server 7/7] RUN npx nx build server
+#11 2.877 
+#11 2.877  NX   Running target build for project server and 2 tasks it depends on:
+#11 2.877 
+#11 2.877 
+#11 5.412 
+#11 5.412 > nx run types:build
+#11 5.412 
+#11 5.412 Compiling TypeScript files for project "types"...
+#11 5.412 Done compiling TypeScript files for project "types".
+#11 5.606 
+#11 5.606 > nx run db:build
+#11 5.606 
+#11 5.606 Compiling TypeScript files for project "db"...
+#11 5.606 Done compiling TypeScript files for project "db".
+#11 5.616 
+#11 5.616 > nx run server:build
+#11 5.616 
+#11 5.618 > webpack-cli build --node-env=production
+#11 5.618 
+#11 8.868 webpack compiled [1m[32msuccessfully[39m[22m (1f9726ebddd50221)
+#11 8.908 
+#11 8.908 
+#11 8.908 
+#11 8.908  NX   Successfully ran target build for project server and 2 tasks it depends on
+#11 8.908 
+#11 8.908 
+#11 DONE 9.5s
+
+#12 [server] exporting to image
+#12 exporting layers
+#12 exporting layers 48.6s done
+#12 exporting manifest sha256:65a1694d91011198b0933d81ce4e0dcc3abdcacc7bbc7a3168d77b4d7ebedb9e 0.0s done
+#12 exporting config sha256:1ea72f1ef177fe1d56f8dc742ced7ffec683350cc5942cedf21870c4c6035999 done
+#12 exporting attestation manifest sha256:21fc8625548f26f5f8f3dc64659b56932d2957e8c662cd9f92ef6f3b8bc5e6d1 0.0s done
+#12 exporting manifest list sha256:7f62f3d5b1b9aa71bbbc385eb0ba12cb6937a4c6cee60686619338271c61b41b done
+#12 naming to docker.io/library/p2p-marketplace-server:latest done
+#12 unpacking to docker.io/library/p2p-marketplace-server:latest
+#12 unpacking to docker.io/library/p2p-marketplace-server:latest 14.0s done
+#12 DONE 62.7s
+
+#13 [server] resolving provenance for metadata file
+#13 DONE 0.0s
+
+#14 [client internal] load build definition from Dockerfile
+#14 transferring dockerfile: 366B done
+#14 DONE 0.0s
+
+#2 [client internal] load metadata for docker.io/library/node:20-alpine
+#2 DONE 2.0s
+
+#15 [client internal] load .dockerignore
+#15 transferring context: 2B done
+#15 DONE 0.0s
+
+#4 [client 1/8] FROM docker.io/library/node:20-alpine@sha256:658d0f63e501824d6c23e06d4bb95c71e7d704537c9d9272f488ac03a370d448
+#4 resolve docker.io/library/node:20-alpine@sha256:658d0f63e501824d6c23e06d4bb95c71e7d704537c9d9272f488ac03a370d448 done
+#4 DONE 0.0s
+
+#16 [client internal] load build context
+#16 transferring context: 8.89MB 5.0s
+#16 transferring context: 10.13MB 5.6s done
+#16 DONE 5.7s
+
+#6 [client 2/8] WORKDIR /usr/src/app
+#6 CACHED
+
+#17 [client 3/8] COPY package*.json ./
+#17 CACHED
+
+#18 [client 4/8] RUN npm install
+#18 CACHED
+
+#19 [client 5/8] COPY . .
+#19 DONE 22.8s
+
+#20 [client 6/8] RUN npx nx build client
+#20 3.238 
+#20 3.239 > nx run client:build
+#20 3.239 
+#20 3.241 > next build
+#20 3.241 
+#20 4.755 [35m[1mAttention[22m[39m: Next.js now collects completely anonymous telemetry regarding usage.
+#20 4.755 This information is used to shape Next.js' roadmap and prioritize features.
+#20 4.755 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+#20 4.755 [36mhttps://nextjs.org/telemetry[39m
+#20 4.755 
+#20 4.775    [1m[38;2;173;127;168m▲ Next.js 16.0.10[39m[22m (Turbopack)
+#20 4.775 
+#20 4.846  [37m[1m [22m[39m Creating an optimized production build ...
+#20 24.70 
+#20 24.70 > Build error occurred
+#20 24.72 Error: Turbopack build failed with 7 errors:
+#20 24.72 ./apps/client/src/app/dashboard/transactions/[id]/page.tsx:7:1
+#20 24.72 [1m[31mModule not found[39m[22m: Can't resolve [32m'../../../../../components/ui/button'[39m
+#20 24.72 [0m [90m  5 |[39m [36mimport[39m api [36mfrom[39m [32m"../../../../../lib/api"[39m
+#20 24.72  [90m  6 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardFooter[39m } [36mfrom[39m [32m"../../../../../components/ui/card"[39m
+#20 24.72 [31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m"../../../../../components/ui/button"[39m
+#20 24.72  [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+#20 24.72  [90m  8 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m"../../../../../context/auth-context"[39m
+#20 24.72  [90m  9 |[39m
+#20 24.72  [90m 10 |[39m [36mconst[39m [33mSTEPS[39m [33m=[39m [[0m
+#20 24.72 
+#20 24.72 
+#20 24.72 
+#20 24.72 Import traces:
+#20 24.72   Client Component Browser:
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Client Component Browser]
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Server Component]
+#20 24.72 
+#20 24.72   Client Component SSR:
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Client Component SSR]
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Server Component]
+#20 24.72 
+#20 24.72 https://nextjs.org/docs/messages/module-not-found
+#20 24.72 
+#20 24.72 
+#20 24.72 ./apps/client/src/app/dashboard/transactions/[id]/page.tsx:6:1
+#20 24.72 [1m[31mModule not found[39m[22m: Can't resolve [32m'../../../../../components/ui/card'[39m
+#20 24.72 [0m [90m 4 |[39m [36mimport[39m { useParams[33m,[39m useRouter } [36mfrom[39m [32m"next/navigation"[39m
+#20 24.72  [90m 5 |[39m [36mimport[39m api [36mfrom[39m [32m"../../../../../lib/api"[39m
+#20 24.72 [31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardFooter[39m } [36mfrom[39m [32m"../../../../../components/ui/card"[39m
+#20 24.72  [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+#20 24.72  [90m 7 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m"../../../../../components/ui/button"[39m
+#20 24.72  [90m 8 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m"../../../../../context/auth-context"[39m
+#20 24.72  [90m 9 |[39m[0m
+#20 24.72 
+#20 24.72 
+#20 24.72 
+#20 24.72 Import traces:
+#20 24.72   Client Component Browser:
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Client Component Browser]
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Server Component]
+#20 24.72 
+#20 24.72   Client Component SSR:
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Client Component SSR]
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Server Component]
+#20 24.72 
+#20 24.72 https://nextjs.org/docs/messages/module-not-found
+#20 24.72 
+#20 24.72 
+#20 24.72 ./apps/client/src/app/dashboard/transactions/[id]/page.tsx:8:1
+#20 24.72 [1m[31mModule not found[39m[22m: Can't resolve [32m'../../../../../context/auth-context'[39m
+#20 24.72 [0m [90m  6 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardFooter[39m } [36mfrom[39m [32m"../../../../../components/ui/card"[39m
+#20 24.72  [90m  7 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m"../../../../../components/ui/button"[39m
+#20 24.72 [31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m"../../../../../context/auth-context"[39m
+#20 24.72  [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+#20 24.72  [90m  9 |[39m
+#20 24.72  [90m 10 |[39m [36mconst[39m [33mSTEPS[39m [33m=[39m [
+#20 24.72  [90m 11 |[39m     [32m'OFFER_ACCEPTED'[39m[33m,[39m[0m
+#20 24.72 
+#20 24.72 
+#20 24.72 
+#20 24.72 Import traces:
+#20 24.72   Client Component Browser:
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Client Component Browser]
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Server Component]
+#20 24.72 
+#20 24.72   Client Component SSR:
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Client Component SSR]
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Server Component]
+#20 24.72 
+#20 24.72 https://nextjs.org/docs/messages/module-not-found
+#20 24.72 
+#20 24.72 
+#20 24.72 ./apps/client/src/app/dashboard/transactions/[id]/page.tsx:5:1
+#20 24.72 [1m[31mModule not found[39m[22m: Can't resolve [32m'../../../../../lib/api'[39m
+#20 24.72 [0m [90m 3 |[39m [36mimport[39m { useEffect[33m,[39m useState } [36mfrom[39m [32m"react"[39m
+#20 24.72  [90m 4 |[39m [36mimport[39m { useParams[33m,[39m useRouter } [36mfrom[39m [32m"next/navigation"[39m
+#20 24.72 [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m api [36mfrom[39m [32m"../../../../../lib/api"[39m
+#20 24.72  [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+#20 24.72  [90m 6 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m[33m,[39m [33mCardDescription[39m[33m,[39m [33mCardFooter[39m } [36mfrom[39m [32m"../../../../../components/ui/card"[39m
+#20 24.72  [90m 7 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m"../../../../../components/ui/button"[39m
+#20 24.72  [90m 8 |[39m [36mimport[39m { useAuth } [36mfrom[39m [32m"../../../../../context/auth-context"[39m[0m
+#20 24.72 
+#20 24.72 
+#20 24.72 
+#20 24.72 Import traces:
+#20 24.72   Client Component Browser:
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Client Component Browser]
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Server Component]
+#20 24.72 
+#20 24.72   Client Component SSR:
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Client Component SSR]
+#20 24.72     ./apps/client/src/app/dashboard/transactions/[id]/page.tsx [Server Component]
+#20 24.72 
+#20 24.72 https://nextjs.org/docs/messages/module-not-found
+#20 24.72 
+#20 24.72 
+#20 24.72 ./apps/client/src/app/dashboard/page.tsx:6:1
+#20 24.72 [1m[31mModule not found[39m[22m: Can't resolve [32m'../../../components/ui/button'[39m
+#20 24.72 [0m [90m 4 |[39m [36mimport[39m api [36mfrom[39m [32m"../../../lib/api"[39m
+#20 24.72  [90m 5 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m[33m,[39m [33mCardDescription[39m } [36mfrom[39m [32m"../../../components/ui/card"[39m
+#20 24.72 [31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m"../../../components/ui/button"[39m
+#20 24.72  [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+#20 24.72  [90m 7 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m
+#20 24.72  [90m 8 |[39m
+#20 24.72  [90m 9 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mDashboardPage[39m() {[0m
+#20 24.72 
+#20 24.72 
+#20 24.72 
+#20 24.72 Import traces:
+#20 24.72   Client Component Browser:
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Client Component Browser]
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Server Component]
+#20 24.72 
+#20 24.72   Client Component SSR:
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Client Component SSR]
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Server Component]
+#20 24.72 
+#20 24.72 https://nextjs.org/docs/messages/module-not-found
+#20 24.72 
+#20 24.72 
+#20 24.72 ./apps/client/src/app/dashboard/page.tsx:5:1
+#20 24.72 [1m[31mModule not found[39m[22m: Can't resolve [32m'../../../components/ui/card'[39m
+#20 24.72 [0m [90m 3 |[39m [36mimport[39m { useEffect[33m,[39m useState } [36mfrom[39m [32m"react"[39m
+#20 24.72  [90m 4 |[39m [36mimport[39m api [36mfrom[39m [32m"../../../lib/api"[39m
+#20 24.72 [31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m[33m,[39m [33mCardDescription[39m } [36mfrom[39m [32m"../../../components/ui/card"[39m
+#20 24.72  [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+#20 24.72  [90m 6 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m"../../../components/ui/button"[39m
+#20 24.72  [90m 7 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m
+#20 24.72  [90m 8 |[39m[0m
+#20 24.72 
+#20 24.72 
+#20 24.72 
+#20 24.72 Import traces:
+#20 24.72   Client Component Browser:
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Client Component Browser]
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Server Component]
+#20 24.72 
+#20 24.72   Client Component SSR:
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Client Component SSR]
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Server Component]
+#20 24.72 
+#20 24.72 https://nextjs.org/docs/messages/module-not-found
+#20 24.72 
+#20 24.72 
+#20 24.72 ./apps/client/src/app/dashboard/page.tsx:4:1
+#20 24.72 [1m[31mModule not found[39m[22m: Can't resolve [32m'../../../lib/api'[39m
+#20 24.72 [0m [90m 2 |[39m
+#20 24.72  [90m 3 |[39m [36mimport[39m { useEffect[33m,[39m useState } [36mfrom[39m [32m"react"[39m
+#20 24.72 [31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m api [36mfrom[39m [32m"../../../lib/api"[39m
+#20 24.72  [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+#20 24.72  [90m 5 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m[33m,[39m [33mCardHeader[39m[33m,[39m [33mCardTitle[39m[33m,[39m [33mCardDescription[39m } [36mfrom[39m [32m"../../../components/ui/card"[39m
+#20 24.72  [90m 6 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m"../../../components/ui/button"[39m
+#20 24.72  [90m 7 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[0m
+#20 24.72 
+#20 24.72 
+#20 24.72 
+#20 24.72 Import traces:
+#20 24.72   Client Component Browser:
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Client Component Browser]
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Server Component]
+#20 24.72 
+#20 24.72   Client Component SSR:
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Client Component SSR]
+#20 24.72     ./apps/client/src/app/dashboard/page.tsx [Server Component]
+#20 24.72 
+#20 24.72 https://nextjs.org/docs/messages/module-not-found
+#20 24.72 
+#20 24.72 
+#20 24.72     at <unknown> (./apps/client/src/app/dashboard/transactions/[id]/page.tsx:7:1)
+#20 24.72     at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+#20 24.72     at <unknown> (./apps/client/src/app/dashboard/transactions/[id]/page.tsx:6:1)
+#20 24.72     at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+#20 24.72     at <unknown> (./apps/client/src/app/dashboard/transactions/[id]/page.tsx:8:1)
+#20 24.72     at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+#20 24.72     at <unknown> (./apps/client/src/app/dashboard/transactions/[id]/page.tsx:5:1)
+#20 24.72     at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+#20 24.72     at <unknown> (./apps/client/src/app/dashboard/page.tsx:6:1)
+#20 24.72     at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+#20 24.72     at <unknown> (./apps/client/src/app/dashboard/page.tsx:5:1)
+#20 24.72     at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+#20 24.72     at <unknown> (./apps/client/src/app/dashboard/page.tsx:4:1)
+#20 24.72     at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+#20 24.87 Warning: command "next build" exited with non-zero status code
+#20 24.91 
+#20 24.91 
+#20 24.91  NX   Running target build for project client failed
+#20 24.91 
+#20 24.91 Failed tasks:
+#20 24.91 
+#20 24.91 - client:build
+#20 24.91 
+#20 24.91 Hint: run the command with --verbose for more details.
+#20 24.91 
+#20 ERROR: process "/bin/sh -c npx nx build client" did not complete successfully: exit code: 1
+------
+ > [client 6/8] RUN npx nx build client:
+24.91 
+24.91 
+24.91  NX   Running target build for project client failed
+24.91 
+24.91 Failed tasks:
+24.91 
+24.91 - client:build
+24.91 
+24.91 Hint: run the command with --verbose for more details.
+24.91 
+------
+failed to solve: process "/bin/sh -c npx nx build client" did not complete successfully: exit code: 1
