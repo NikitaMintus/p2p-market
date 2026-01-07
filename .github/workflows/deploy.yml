@@ -1,0 +1,36 @@
+name: Deploy to Ubuntu (docker compose)
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+
+            cd /opt/p2p
+
+            # обновляем код
+            git fetch --all
+            git reset --hard origin/main
+
+            # собираем и поднимаем контейнеры
+            docker compose down || true
+            docker compose up -d --build --remove-orphans
+
+            # посмотреть статус
+            docker compose ps
+
+            # опционально чистка старых образов
+            docker image prune -f
+
