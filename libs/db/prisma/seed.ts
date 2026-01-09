@@ -9,7 +9,7 @@ const BOB_ID = 'd75f9638-3436-4299-b369-1c9c0379d77f';
 const CHARLIE_ID = 'a123b456-7890-1234-5678-90abcdef1234';
 
 async function main() {
-  console.log('🌱 Starting seed...');
+  console.log('Starting seed...');
 
   // 1. Cleanup
   await prisma.transaction.deleteMany();
@@ -47,7 +47,7 @@ async function main() {
     },
   });
 
-  console.log('✅ Users created');
+  console.log('Users created');
 
   // 3. Create Products (Listings in DB)
   const productsData = [
@@ -58,7 +58,7 @@ async function main() {
       category: 'Electronics',
       condition: Condition.NEW,
       sellerId: alice.id,
-      images: ['https://placehold.co/400'],
+      images: ['https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800'],
       status: ListingStatus.ACTIVE,
     },
     {
@@ -68,7 +68,7 @@ async function main() {
       category: 'Electronics',
       condition: Condition.LIKE_NEW,
       sellerId: alice.id,
-      images: ['https://placehold.co/400'],
+      images: ['https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&w=800'],
       status: ListingStatus.ACTIVE,
     },
     {
@@ -78,7 +78,7 @@ async function main() {
       category: 'Clothing',
       condition: Condition.GOOD,
       sellerId: charlie.id,
-      images: ['https://placehold.co/400'],
+      images: ['https://images.pexels.com/photos/1124468/pexels-photo-1124468.jpeg?auto=compress&cs=tinysrgb&w=800'],
       status: ListingStatus.ACTIVE,
     },
     {
@@ -88,7 +88,7 @@ async function main() {
       category: 'Electronics',
       condition: Condition.LIKE_NEW,
       sellerId: charlie.id,
-      images: ['https://placehold.co/400'],
+      images: ['https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=800'],
       status: ListingStatus.ACTIVE,
     },
     {
@@ -108,7 +108,7 @@ async function main() {
       category: 'Electronics',
       condition: Condition.GOOD,
       sellerId: alice.id,
-      images: ['https://placehold.co/400'],
+      images: ['https://images.pexels.com/photos/777001/pexels-photo-777001.jpeg?auto=compress&cs=tinysrgb&w=800'],
       status: ListingStatus.ACTIVE,
     },
   ];
@@ -166,9 +166,9 @@ async function main() {
     },
   });
 
-  console.log('✅ Offers created');
+  console.log('Offers created');
 
-  console.log('🚀 Seed completed!');
+  console.log('Seed completed!');
 }
 
 main()
