@@ -18,8 +18,9 @@ jobs:
           script: |
             set -e
 
-            # Создаем папку, если ее нет
-            mkdir -p /opt/p2p
+            # Создаем папку, если ее нет (требуется sudo)
+            sudo mkdir -p /opt/p2p
+            sudo chown -R $USER:$USER /opt/p2p
             cd /opt/p2p
 
             # Если .git нет, клонируем. Если есть — обновляем origin
