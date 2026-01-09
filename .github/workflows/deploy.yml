@@ -18,11 +18,17 @@ jobs:
           script: |
             set -e
 
+            # Создаем папку, если ее нет
+            mkdir -p /opt/p2p
             cd /opt/p2p
 
-            # обновляем код
-            git fetch --all
-            git reset --hard origin/main
+            # Если .git нет, клонируем. Если есть — обновляем origin
+            if [ ! -d ".git" ]; then
+              git clone https://github.com/${{ github.repository }} .
+            else
+              git fetch --all
+              git reset --hard origin/main
+            fi
 
             # собираем и поднимаем контейнеры
             docker compose down || true
