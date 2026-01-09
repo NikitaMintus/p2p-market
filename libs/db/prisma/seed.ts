@@ -119,7 +119,7 @@ async function main() {
     products.push(product);
   }
 
-  console.log('✅ Products created');
+  console.log('Products created');
 
   // 4. Create Offers
   // Bob offers on Alice's iPhone
